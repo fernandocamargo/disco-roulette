@@ -1,11 +1,16 @@
 import update from 'immutability-helper';
 
 export const getInitialState = () => ({
-  error: null,
-  index: null,
-  loading: true,
+  history: [],
+  release: {},
   releases: [],
 });
 
-export const merge = next => current =>
-  update(current, { loading: { $set: false }, $merge: next });
+export const merge = ({ release, releases }) => state =>
+  update(state, {
+    ...(!!release && {
+      history: { $push: [release.id] },
+      release: { [release.id]: { $set: release } },
+    }),
+    ...(!!releases && { releases: { $set: releases } }),
+  });
