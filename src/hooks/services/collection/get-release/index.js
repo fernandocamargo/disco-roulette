@@ -6,9 +6,10 @@ import { format } from './helpers';
 
 export default () => {
   const { get } = useDiscogs();
-  const service = useCallback(() => get('/collection/folders').then(format), [
-    get,
-  ]);
+  const service = useCallback(
+    ({ resource_url }) => get(resource_url).then(format),
+    [get]
+  );
 
   return service;
 };

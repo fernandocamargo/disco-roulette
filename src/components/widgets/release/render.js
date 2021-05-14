@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 
 import { Artist, Link } from 'components/widgets';
 
+import use from './hooks';
+
 export const renderArtist = (artist, index, { length }) => {
   const last = index === length - 1;
 
@@ -9,9 +11,7 @@ export const renderArtist = (artist, index, { length }) => {
 };
 
 export default props => {
-  const {
-    basic_information: { artists, id, title },
-  } = props;
+  const { artists, id, title } = use(props);
 
   return (
     <div>
