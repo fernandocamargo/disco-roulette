@@ -5,19 +5,19 @@ import { Release } from 'components/widgets';
 
 import use from './hooks';
 
+export const renderRelease = release => (
+  <Release key={release.id} {...release} />
+);
+
 export default ({ className }) => {
-  const { release, shuffle } = use();
+  const { releases, shuffle } = use();
 
   return (
     <Fragment>
       <Style />
       <div className={className}>
-        {!!release && (
-          <Fragment>
-            <button onClick={shuffle}>Shuffle</button>
-            <Release {...release} />
-          </Fragment>
-        )}
+        <button onClick={shuffle}>Shuffle</button>
+        {releases.map(renderRelease)}
       </div>
     </Fragment>
   );

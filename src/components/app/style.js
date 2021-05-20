@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
+import { Release } from 'components/widgets';
+
 export default component => styled(component)`
   align-items: center;
   display: flex;
-  height: calc(100% - 10rem);
+  height: 100%;
   justify-content: center;
-  padding: 5rem;
+  overflow: hidden;
   position: relative;
 
   button {
@@ -20,5 +22,12 @@ export default component => styled(component)`
     position: absolute;
     right: 1rem;
     top: 1rem;
+    z-index: 1;
+  }
+
+  ${Release} {
+    &:not(:last-of-type) {
+      display: none;
+    }
   }
 `;

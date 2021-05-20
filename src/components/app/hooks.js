@@ -1,5 +1,3 @@
-import get from 'lodash/get';
-import last from 'lodash/last';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import {
@@ -26,9 +24,17 @@ export default () => {
           [index]: { basic_information },
         } = releases;
 
-        return getRelease(basic_information).then(release =>
-          setState(merge({ release, releases }))
-        );
+        return getRelease(basic_information).then(release => {
+          const image = release.images.find(({ uri }) => !!uri);
+
+          return new Promise(resolve =>
+            Object.assign(new Image(), { src: image.uri }).addEventListener(
+              'load',
+              resolve,
+              true
+            )
+          ).then(() => setState(merge({ release, releases })));
+        });
       }),
     [getRelease, getReleases]
   );
@@ -38,9 +44,17 @@ export default () => {
       [index]: { basic_information },
     } = state.releases;
 
-    return getRelease(basic_information).then(release =>
-      setState(merge({ release }))
-    );
+    return getRelease(basic_information).then(release => {
+      const image = release.images.find(({ uri }) => !!uri);
+
+      return new Promise(resolve =>
+        Object.assign(new Image(), { src: image.uri }).addEventListener(
+          'load',
+          resolve,
+          true
+        )
+      ).then(() => setState(merge({ release })));
+    });
   }, [state.releases, getRelease]);
   const fetch = useCallback(
     () =>
@@ -49,14 +63,14 @@ export default () => {
         .catch(fail),
     [fail, getFolders, succeed]
   );
-  const release = useMemo(() => get(state.release, last(state.history)), [
-    state.history,
-    state.release,
-  ]);
+  const releases = useMemo(
+    () => state.history.map(release => state.release[release]),
+    [state.history, state.release]
+  );
 
   useEffect(() => {
     fetch();
   }, [fetch]);
 
-  return { release, shuffle };
+  return { releases, shuffle };
 };

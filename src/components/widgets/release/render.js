@@ -13,13 +13,13 @@ export default props => {
 
   return (
     <article className={className}>
-      <dl>
+      <dl aria-roledescription="artists">
         <dt>Artist(s)</dt>
         <dd>
           <ul>{artists.map(renderArtist)}</ul>
         </dd>
       </dl>
-      <dl>
+      <dl aria-roledescription="title">
         <dt>Title</dt>
         <dd>
           <Link href={`//discogs.com/release/${id}`} title={title}>
