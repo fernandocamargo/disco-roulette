@@ -1,6 +1,6 @@
 # Disco Roulette
 
-<img width="1438" height="742" alt="Screenshot 2025-12-23 at 11 39 31" src="https://github.com/user-attachments/assets/aa08502b-6572-4e4e-ab96-c35721edf8fa" />
+<img width="1440" height="739" alt="Screenshot 2025-12-23 at 11 43 21" src="https://github.com/user-attachments/assets/174da5f7-e354-4700-b084-52d6d7cd8537" />
 
 A web application that randomly selects vinyl records from a [Discogs](https://www.discogs.com/) user's collection and displays them with full-screen album artwork. Built as an interactive way to rediscover music from your collection.
 
