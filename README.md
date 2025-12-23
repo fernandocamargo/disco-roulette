@@ -40,6 +40,9 @@ Navigate to `/{discogs-username}` to load any Discogs user's collection (e.g., `
 - **[Immutability-helper](https://github.com/kolodny/immutability-helper)** - Immutable state updates using reducer-like patterns
 - **[Lodash](https://lodash.com/)** - Utility functions for safe data access and transformations
 
+### Infrastructure
+- **[corsproxy.io](https://corsproxy.io/)** - CORS proxy for Discogs API requests (required for browser-based access)
+
 ### Development
 - **[Create React App](https://create-react-app.dev/)** - Build tooling and [webpack](https://webpack.js.org/) configuration
 - **[ESLint](https://eslint.org/) + [Prettier](https://prettier.io/)** - Code quality and consistent formatting
@@ -61,6 +64,8 @@ Business logic is abstracted into [custom hooks](https://react.dev/learn/reusing
 - `useGetRelease` - Fetch detailed release information
 
 ### Key Implementation Details
+
+**CORS Proxy for Browser Compatibility**: The Discogs API doesn't support [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (Cross-Origin Resource Sharing) for browser-based requests to user collection endpoints. While the API works fine from localhost during development, production deployments encounter CORS errors. To solve this, all API requests are routed through [corsproxy.io](https://corsproxy.io/), which acts as a server-side proxy that adds proper CORS headers. This allows the app to access any public Discogs collection from a static GitHub Pages deployment without requiring a custom backend.
 
 **Recursive Pagination**: Automatically follows Discogs API pagination links to fetch complete collections regardless of size.
 
@@ -106,6 +111,7 @@ Navigate to `http://localhost:3000/{discogs-username}` to view a user's collecti
 
 ## Technical Notes
 
+- **CORS Proxy Dependency**: Uses corsproxy.io to bypass Discogs API CORS restrictions for browser access
 - Requires Node.js with `--openssl-legacy-provider` flag (configured in package.json)
 - Uses path aliasing (`jsconfig.json`) for clean imports from `/src`
 - Implements proper link security (rel="noreferrer noopener")
@@ -123,6 +129,7 @@ Want to see it in action? Check out my music collections:
 - [React hooks](https://react.dev/reference/react/hooks) ([useState](https://react.dev/reference/react/useState), [useEffect](https://react.dev/reference/react/useEffect), [useCallback](https://react.dev/reference/react/useCallback), [useMemo](https://react.dev/reference/react/useMemo))
 - [REST API](https://www.restapitutorial.com/) integration with pagination handling
 - [Async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) patterns and [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) composition
+- Working around [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) restrictions in browser-based API consumption
 - [CSS-in-JS](https://cssinjs.org/) with [styled-components](https://styled-components.com/)
 - Component composition and reusability
 - [Custom hooks](https://react.dev/learn/reusing-logic-with-custom-hooks) for business logic separation
