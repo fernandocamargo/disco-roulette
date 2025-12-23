@@ -1,6 +1,9 @@
 # Disco Roulette
 
-<img width="1440" height="739" alt="Screenshot 2025-12-23 at 11 43 21" src="https://github.com/user-attachments/assets/174da5f7-e354-4700-b084-52d6d7cd8537" />
+<img width="2880" height="1384" alt="FireShot Capture 008 - Loading  -  localhost" src="https://github.com/user-attachments/assets/770e0c29-1419-4297-be86-c9ec22d35ca3" />
+<img width="2880" height="1384" alt="FireShot Capture 007 - Loading  -  localhost" src="https://github.com/user-attachments/assets/7cc36607-91b1-4c50-9515-ed25e7096e1f" />
+<img width="2880" height="1384" alt="FireShot Capture 006 - Loading  -  localhost" src="https://github.com/user-attachments/assets/6eb03e3b-e5b2-4560-8e43-37cf3229358e" />
+
 
 A web application that randomly selects vinyl records from a [Discogs](https://www.discogs.com/) user's collection and displays them with full-screen album artwork. Built as an interactive way to rediscover music from your collection.
 
