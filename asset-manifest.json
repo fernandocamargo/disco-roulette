@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/disco-roulette/static/js/main.f402dd0b.chunk.js",
+    "main.js.map": "/disco-roulette/static/js/main.f402dd0b.chunk.js.map",
+    "runtime-main.js": "/disco-roulette/static/js/runtime-main.c68d985c.js",
+    "runtime-main.js.map": "/disco-roulette/static/js/runtime-main.c68d985c.js.map",
+    "static/js/2.4aaa4b51.chunk.js": "/disco-roulette/static/js/2.4aaa4b51.chunk.js",
+    "static/js/2.4aaa4b51.chunk.js.map": "/disco-roulette/static/js/2.4aaa4b51.chunk.js.map",
+    "index.html": "/disco-roulette/index.html",
+    "static/js/2.4aaa4b51.chunk.js.LICENSE.txt": "/disco-roulette/static/js/2.4aaa4b51.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c68d985c.js",
+    "static/js/2.4aaa4b51.chunk.js",
+    "static/js/main.f402dd0b.chunk.js"
+  ]
+}
