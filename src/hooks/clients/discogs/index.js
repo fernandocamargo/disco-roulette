@@ -12,7 +12,7 @@ export default () => {
             'Discogs key=CBYXakYdVQNblmGsSsKu, secret=oitbBZUwWnyWNIQZeLagsBAwjcyDosmo',
           'User-Agent': 'disco-roulette/1.0',
         },
-        baseURL: `https://api.discogs.com/users/${identify()}`,
+        baseURL: `https://corsproxy.io/?https://api.discogs.com/users/${identify()}`,
       }),
     []
   );
